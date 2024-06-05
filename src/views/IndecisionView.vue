@@ -4,13 +4,16 @@
       <span>Mi esposa</span>
     </div>
 
-    <ChatMessages />
+    <ChatMessages :messages="messages" />
 
-    <MessageBox />
+    <MessageBox @send-message="onMessage" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import ChatMessages from '@/components/chat/ChatMessages.vue';
 import MessageBox from '@/components/chat/MessageBox.vue';
+import { useChat } from '@/composables/useChat';
+
+const { messages, onMessage } = useChat();
 </script>
